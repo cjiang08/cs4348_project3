@@ -60,7 +60,7 @@ make
 
 # 5. To switch replacement strategy, edit src/manager.c:
 #    Change use_fifo = 1 (FIFO) or 0 (LRU), then recompile
-
+```
 ###
 Each test case has a corresponding `.txt` file in the `test/` directory:
 
