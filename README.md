@@ -6,7 +6,7 @@
 | **Semester**      | Summer 2025                       |
 | **Course**        | CS 4348 - Operating Systems       |
 | **Project Title** | Simulated Memory Management System|
-| **Due Date**      | Thursday, July 27, 2025           |
+| **Due Date**      | Sunday, July 27, 2025             |
 | **Group**         | #12                               |
 | **Members**       | Jaszmine DeFranco, Carolyn Jiang  |
 
