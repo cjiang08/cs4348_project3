@@ -1,0 +1,6 @@
+alloc P5 2
+access P5 0 read
+access P5 4096 write
+free P5
+alloc P6 1
+access P6 0 read        # Should reuse freed frames

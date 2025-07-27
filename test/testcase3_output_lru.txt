@@ -1,0 +1,7 @@
+Allocated 256 pages to process P3
+Translated virtual address 0 (P3) -> physical address 0
+Translated virtual address 4096 (P3) -> physical address 4096
+Error: Out of memory
+Page fault on P4 at page 0 (virtual address 0)
+Evicted frame 2 (P3 page 2)
+Translated virtual address 0 (P4) -> physical address 8192

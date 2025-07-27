@@ -1,0 +1,4 @@
+Allocated 2 pages to process P2
+Translated virtual address 0 (P2) -> physical address 0
+Page fault on P2 at page 4 (virtual address 16384)
+Translated virtual address 16384 (P2) -> physical address 8192

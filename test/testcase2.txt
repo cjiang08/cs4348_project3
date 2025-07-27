@@ -1,0 +1,3 @@
+alloc P2 2
+access P2 0 read
+access P2 16384 write     # page 4 → new page → causes a page fault

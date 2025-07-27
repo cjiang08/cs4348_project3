@@ -1,0 +1,5 @@
+alloc P3 256          # Use up all 256 frames (each page gets 1 frame)
+access P3 0 read      # Touch first page → updates LRU/FIFO tracking
+access P3 4096 read   # Touch another page
+alloc P4 1            # Triggers replacement
+access P4 0 read      # Page fault → NO free frames → triggers FIFO/LRU replacement

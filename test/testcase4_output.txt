@@ -1,0 +1,6 @@
+Allocated 2 pages to process P5
+Translated virtual address 0 (P5) -> physical address 0
+Translated virtual address 4096 (P5) -> physical address 4096
+Freed memory for process P5
+Allocated 1 pages to process P6
+Translated virtual address 0 (P6) -> physical address 0

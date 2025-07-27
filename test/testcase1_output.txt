@@ -1,0 +1,4 @@
+Allocated 3 pages to process P1
+Translated virtual address 0 (P1) -> physical address 0
+Translated virtual address 4096 (P1) -> physical address 4096
+Translated virtual address 8192 (P1) -> physical address 8192

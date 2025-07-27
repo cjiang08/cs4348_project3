@@ -1,0 +1,4 @@
+alloc P1 3
+access P1 0 read
+access P1 4096 write
+access P1 8192 read
