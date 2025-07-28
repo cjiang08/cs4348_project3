@@ -1,23 +1,22 @@
 #ifndef PAGE_TABLE_H
 #define PAGE_TABLE_H
 
-#define MAX_PAGES 256 // Max virtual pages per process
+#define MAX_PAGES 256 
 
-// Single page table entry (PTE)
+// single page table entry
 typedef struct {
-    int valid;           // Valid bit: 1 if page is mapped
-    int frame_number;    // Frame number in physical memory
-    int reference_bit;   // Used for LRU tracking
-    int modified_bit;    // 1 if the page has been written to
+    int valid;           
+    int frame_number;    
+    int reference_bit;   
+    int modified_bit;    
 } PageTableEntry;
 
-// Page table for a process
 typedef struct {
-    int pid;                     // Process ID
-    PageTableEntry entries[MAX_PAGES]; // All entries for this process
+    int pid;                    
+    PageTableEntry entries[MAX_PAGES]; 
 } PageTable;
 
-PageTable* create_page_table(int pid);  // Allocate new page table
-void destroy_page_table(PageTable* pt); // Free page table
+PageTable* create_page_table(int pid); 
+void destroy_page_table(PageTable* pt);
 
 #endif

@@ -6,18 +6,18 @@
 #include "manager.h"
 #include "replacement.h"
 
-#define MAX_PROCESSES 100 // Upper bound for process IDs
-int use_fifo = 0; // Set to 0 to use LRU instead of FIFO
+#define MAX_PROCESSES 100 
+int use_fifo = 0;
 
-PageTable* processes[MAX_PROCESSES]; // Array of process page tables
+PageTable* processes[MAX_PROCESSES];
 
-// Allocate num_pages to a process with ID pid
 void alloc(int pid, int num_pages) {
     PageTable* pt = create_page_table(pid);
     processes[pid] = pt;
 
     for (int i = 0; i < num_pages; i++) {
         int f = find_free_frame();
+
         if (f == -1) {
             printf("Error: Out of memory\n");
             return;
@@ -34,7 +34,6 @@ void alloc(int pid, int num_pages) {
     printf("Allocated %d pages to process P%d\n", num_pages, pid);
 }
 
-// Free all memory used by a process
 void free_memory(int pid) {
     if (processes[pid] == NULL) return;
 
@@ -45,8 +44,8 @@ void free_memory(int pid) {
     printf("Freed memory for process P%d\n", pid);
 }
 
-// Translate and access a virtual address for read/write
 void access_memory(int pid, int vaddr, const char* mode) {
+    
     if (processes[pid] == NULL) {
         printf("Process P%d not found\n", pid);
         return;
@@ -56,7 +55,7 @@ void access_memory(int pid, int vaddr, const char* mode) {
     int offset = vaddr % FRAME_SIZE;
     PageTableEntry* entry = &processes[pid]->entries[page_num];
 
-    // Page fault check
+    // page fault check
 	if (!entry->valid) {
    		printf("Page fault on P%d at page %d (virtual address %d)\n", pid, page_num, vaddr);
 		
@@ -85,12 +84,12 @@ void access_memory(int pid, int vaddr, const char* mode) {
     entry->frame_number = victim;
 }
  
-   // Set reference/modified bits
     entry->reference_bit = 1;
+
     if (strcmp(mode, "write") == 0)
         entry->modified_bit = 1;
 
     int phys_addr = entry->frame_number * FRAME_SIZE + offset;
-	track_frame_use(entry->frame_number); // Update FIFO or LRU tracking
+	track_frame_use(entry->frame_number); 
     printf("Translated virtual address %d (P%d) -> physical address %d\n", vaddr, pid, phys_addr);
 }
